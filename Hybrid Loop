@@ -1,0 +1,33 @@
+;sets parameters for counter & executes it
+clr
+fig r1 [virtual-signal=signal-x-tile]
+fig r2 [virtual-signal=signal-y-tile]
+sst r4 [virtual-signal=signal-Z] ;value to count to (rows)
+sst r7 [virtual-signal=signal-C] ; Columns (x-coord iterations)
+add r4 100
+
+:run
+sst r3 [virtual-signal=signal-red] ;run signal
+ssv r3 0
+mov out3 r3
+add r3 1
+
+mov out1 r1
+mov out2 r2
+mov out4 r4
+mov out3 r3
+
+:sleep
+slp r4 ; at least this amount
+; if T>=Z: jump to :end
+fir r5 [virtual-signal=signal-T]
+bge r5 r4 :end
+jmp :sleep
+
+
+:end
+fig r6 [virtual-signal=signal-I] ;store # of resource tiles
+ssv r3 0
+mov out3 r3
+clr out
+btgc r1d

@@ -1,0 +1,10 @@
+;;set defaults for supply aircraft
+;fuel, flags
+
+;;if within a 5x5 cell box centered
+;around target: make payload available
+;^Erase payload data from carrier
+
+;; If empty of payload: RTB
+;send to refueling point
+;flag for being available
