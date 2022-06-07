@@ -1,5 +1,5 @@
-
-;; r8 here is reserved for LEA commands
+;; Example FOR loop. _LOOPLABEL_ acts as the entry/return point for the loop, while _ACTION_LABEL_ is the set of actions to be executed for each iteration of the loop.
+; r8 here is reserved for LEA commands
 
 clr 
 mov r1 _INTVAL_ ;Starting value & register for counter
@@ -15,4 +15,4 @@ jmp :_CONT_
 inc r1 ;increment counter
 jmp r8 ;return to main loop 
 
-:_CONT_
+:_CONT_ ;where to go after loop is finished running
